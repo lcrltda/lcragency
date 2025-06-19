@@ -128,7 +128,7 @@ class LCRAgency {
 
         // Click no email
         $('.email-icon').on('click', () => {
-            window.location.href = 'mailto:contato@lcragency.com';
+            window.location.href = 'mailto:contato@lcrltda.com';
         });
 
         // Ações do browser simulado
