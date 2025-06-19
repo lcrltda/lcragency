@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem Somos - LCR Agency</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-link:hover {
+            color: #888;
+        }
+        
+        .nav-link.active {
+            color: #666;
+        }
+        
+        .nav-icon {
+            font-size: 16px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+        
+        .about-section {
+            padding: 80px 40px 120px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+        
+        .about-image {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideIn 1s ease forwards;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%) brightness(0.9);
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.02) 50%, transparent 60%);
+            animation: shimmer 4s ease-in-out infinite;
+        }
+        
+        .about-content {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 0.3s;
+        }
+        
+        .about-text {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #cccccc;
+            margin-bottom: 40px;
+        }
+        
+        .about-text p {
+            margin-bottom: 30px;
+        }
+        
+        .about-text p:first-child {
+            font-size: 20px;
+            color: #ffffff;
+            font-weight: 400;
+        }
+        
+        .highlight {
+            color: #ffffff;
+            font-weight: 500;
+        }
+        
+        .clients-section {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .clients-title {
+            font-size: 14px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        
+        .clients-list {
+            font-size: 16px;
+            color: #aaa;
+            line-height: 1.8;
+        }
+        
+        /* Animations */
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .about-section {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: left;
+            }
+            
+            .about-image {
+                width: 100%;
+                max-width: 500px;
+                justify-self: center;
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav {
+                padding: 20px 20px;
+            }
+            
+            .nav-links {
+                gap: 25px;
+            }
+            
+            .about-section {
+                padding: 60px 20px 80px;
+                gap: 40px;
+            }
+            
+            .about-image {
+                height: 350px;
+            }
+            
+            .about-text {
+                font-size: 16px;
+            }
+            
+            .about-text p:first-child {
+                font-size: 18px;
+            }
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: 120px;
+            padding: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .footer-link {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: #888;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+        
+        /* Fallback image styling */
+        .image-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">LCR AGENCY</a>
+            <div class="nav-links">
+                <a href="servicos.html" class="nav-link">
+                    <i class="fas fa-bars nav-icon"></i>
+                    Serviços
+                </a>
+                <a href="#" class="nav-link active">
+                    <i class="fas fa-user nav-icon"></i>
+                    Quem Somos
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fab fa-instagram nav-icon"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="about-section">
+            <div class="about-image">
+                <!-- Placeholder para imagem - substitua pelo src da sua imagem -->
+                <div class="image-placeholder">
+                    <i class="fas fa-user" style="font-size: 48px;"></i>
+                </div>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>A LCR Agency traz mais de 5 anos de experiência em música, entretenimento e indústrias criativas, abrangendo tudo desde orientar artistas emergentes e estabelecidos até produzir eventos de grande escala e desenvolver estratégias criativas para se manter relevante neste mundo lindamente caótico.</p>
+                    
+                    <p>Fazendo parcerias com <span class="highlight">artistas líderes, marcas, festivais influentes e iniciativas culturais inovadoras</span>, a LCR Agency cria conexões que te movem para frente.</p>
+                    
+                    <p>Nosso foco está em colaborações significativas — seja elevando novos talentos ou criando histórias de marca que ressoam. Nós buscamos criar momentos que importam, <span class="highlight">conectando cultura e comércio de formas cativantes</span>. Sempre abertos para negócios.</p>
+                </div>
+                
+                <div class="clients-section">
+                    <div class="clients-title">Clientes e Parceiros</div>
+                    <div class="clients-list">
+                        Artistas independentes, marcas emergentes, festivais culturais, <br>
+                        startups criativas, eventos corporativos, projetos de lifestyle, <br>
+                        iniciativas de entretenimento e colaborações internacionais.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="copyright">©LCR LTDA. Todos os direitos reservados.</div>
+            <div class="footer-links">
+                <span class="timestamp" id="timestamp">Thursday, June 19, 2025 10:55 PM</span>
+                <span class="location">
+                    <i class="fas fa-globe-europe"></i> Fortaleza/São Paulo, Brasil
+                </span>
+                <a href="mailto:contato@lcrltda.com" class="footer-link">
+                    <i class="far fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Atualizar horário em tempo real
+        function updateTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            };
+            
+            const formattedTime = now.toLocaleDateString('en-US', options);
+            document.getElementById('timestamp').textContent = formattedTime;
+        }
+        
+        // Atualizar a cada minuto
+        setInterval(updateTime, 60000);
+        updateTime();
+    </script>
+</body>
+</html>
