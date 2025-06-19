@@ -1,0 +1,52 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "jquery": true
+    },
+    "extends": [
+        "eslint:recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "globals": {
+        "$": "readonly",
+        "jQuery": "readonly",
+        "LCR_CONFIG": "readonly"
+    },
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-unused-vars": "warn",
+        "no-console": "warn",
+        "no-undef": "error",
+        "prefer-const": "error",
+        "no-var": "error",
+        "arrow-spacing": "error",
+        "brace-style": ["error", "1tbs"],
+        "comma-dangle": ["error", "never"],
+        "func-call-spacing": ["error", "never"],
+        "key-spacing": ["error", { "beforeColon": false }],
+        "no-multiple-empty-lines": ["error", { "max": 2 }],
+        "no-trailing-spaces": "error",
+        "object-curly-spacing": ["error", "always"],
+        "space-before-blocks": "error",
+        "space-infix-ops": "error"
+    }
+}
