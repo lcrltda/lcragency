@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LCR Serviços - Estratégias Criativas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-link:hover {
+            color: #888;
+        }
+        
+        .nav-link.active {
+            color: #666;
+        }
+        
+        .nav-icon {
+            font-size: 16px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+        
+        .hero-section {
+            padding: 80px 40px 120px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .hero-title {
+            font-size: clamp(48px, 8vw, 120px);
+            font-weight: 300;
+            line-height: 0.9;
+            margin-bottom: 40px;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(20px, 3vw, 32px);
+            font-weight: 300;
+            color: #888;
+            max-width: 800px;
+            margin-bottom: 80px;
+            line-height: 1.3;
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 80px;
+            padding: 0 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .service-item {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .service-item:nth-child(1) { animation-delay: 0.2s; }
+        .service-item:nth-child(2) { animation-delay: 0.4s; }
+        .service-item:nth-child(3) { animation-delay: 0.6s; }
+        .service-item:nth-child(4) { animation-delay: 0.8s; }
+        
+        .service-number {
+            font-size: 14px;
+            color: #666;
+            font-weight: 600;
+            min-width: 40px;
+            margin-top: 5px;
+        }
+        
+        .service-visual {
+            width: 120px;
+            height: 80px;
+            background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            flex-shrink: 0;
+        }
+        
+        .service-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.05) 50%, transparent 60%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        
+        .service-content {
+            flex: 1;
+        }
+        
+        .service-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+        
+        .service-description {
+            font-size: 15px;
+            color: #888;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .service-clients {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .clients-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .globe-icon {
+            width: 12px;
+            height: 12px;
+            opacity: 0.6;
+        }
+        
+        .clients-list {
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                padding: 20px 20px;
+            }
+            
+            .nav-links {
+                gap: 25px;
+            }
+            
+            .hero-section {
+                padding: 60px 20px 80px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+                padding: 0 20px;
+            }
+            
+            .service-item {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .service-visual {
+                width: 100%;
+                height: 120px;
+            }
+        }
+        
+        /* Footer */
+        .footer {
+            margin-top: 120px;
+            padding: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .footer-link {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: #888;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">LCR SERVIÇOS</div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active">
+                    <i class="fas fa-bars nav-icon"></i>
+                    Serviços
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-user nav-icon"></i>
+                    Quem Somos
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fab fa-instagram nav-icon"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <h1 class="hero-title">
+                Transformamos ideias em imagem, som e palavra. Conectamos marcas, contamos histórias e potencializamos talentos com conteúdo criativo e estratégico.
+            </h1>
+            <p class="hero-subtitle">
+                Quatro serviços. Seus para combinar ou usar individualmente.
+            </p>
+        </section>
+
+        <section class="services-grid">
+            <div class="service-item">
+                <div class="service-number">S—1</div>
+                <div class="service-visual"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Narrativa Estratégica</h3>
+                    <p class="service-description">
+                        Desenvolvemos estratégias criativas que conectam marcas e instituições ao seu público por meio de narrativas autênticas, inovadoras e alinhadas aos seus objetivos de comunicação e crescimento.
+                    </p>
+                    <div class="service-clients">
+                        <div class="clients-label">
+                            <i class="fas fa-globe globe-icon"></i>
+                            Clientes
+                        </div>
+                        <div class="clients-list">
+                            Instituições Públicas<br>
+                            Marcas Emergentes<br>
+                            Empresas Privadas em Expansão
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <div class="service-number">S—2</div>
+                <div class="service-visual"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Produtos Audiovisuais</h3>
+                    <p class="service-description">
+                       Criamos conteúdos audiovisuais com alto padrão estético e técnico — de vídeos institucionais a campanhas criativas — entregando narrativas impactantes que fortalecem marcas, projetos e ideias.
+                    </p>
+                    <div class="service-clients">
+                        <div class="clients-label">
+                            <i class="fas fa-globe globe-icon"></i>
+                            Parceiros
+                        </div>
+                        <div class="clients-list">
+                            Ministério Público do Distrito Federal e Territórios<br>
+                            Tribunal de Justiça do Ceará<br>
+                            Marinha do Brasil
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <div class="service-number">S—3</div>
+                <div class="service-visual"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Editoração</h3>
+                    <p class="service-description">
+                       Produzimos conteúdos editoriais que unem criatividade e precisão, desde a concepção até a finalização, entregando materiais impressos e digitais que comunicam com clareza e autenticidade.
+                    </p>
+                    <div class="service-clients">
+                        <div class="clients-label">
+                            <i class="fas fa-globe globe-icon"></i>
+                            Artistas
+                        </div>
+                        <div class="clients-list">
+                            Músicos Emergentes<br>
+                            Artistas Visuais<br>
+                            Criadores de Conteúdo
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <div class="service-number">S—4</div>
+                <div class="service-visual"></div>
+                <div class="service-content">
+                    <h3 class="service-title">Brand Intelligence & Estratégias Digitais</h3>
+                    <p class="service-description">
+                        Unimos análise de dados, insights de mercado e criatividade para construir estratégias eficazes que fortalecem a identidade da sua marca, ampliam seu alcance e impulsionam resultados reais.
+                    </p>
+                    <div class="service-clients">
+                        <div class="clients-label">
+                            <i class="fas fa-globe globe-icon"></i>
+                            Eventos
+                        </div>
+                        <div class="clients-list">
+                            Análises de Mercado e Relatórios Estratégicos<br>
+                            Lançamentos de Produto<br>
+                            Campanhas Integradas
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="copyright">©LCR LTDA. Todos os direitos reservados.</div>
+            <div class="footer-links">
+                <span class="timestamp" id="timestamp">Thursday, June 19, 2025 10:55 PM</span>
+                <span class="location">
+                    <i class="fas fa-globe-europe"></i> Fortaleza/São Paulo, Brasil
+                </span>
+                <a href="mailto:contato@lcrltda.com" class="footer-link">
+                    <i class="far fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Atualizar horário em tempo real
+        function updateTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            };
+            
+            const formattedTime = now.toLocaleDateString('en-US', options);
+            document.getElementById('timestamp').textContent = formattedTime;
+        }
+        
+        // Atualizar a cada minuto
+        setInterval(updateTime, 60000);
+        updateTime();
+
+        // Adicionar interatividade aos links de navegação
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.textContent.trim() === 'Quem Somos') {
+                    e.preventDefault();
+                    // Aqui você pode adicionar a navegação para a página "Quem Somos" quando ela for criada
+                    console.log('Navegando para Quem Somos...');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
