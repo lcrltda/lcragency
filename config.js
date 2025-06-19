@@ -2,9 +2,10 @@
 const LCR_CONFIG = {
     // Informações da empresa
     company: {
-        name: 'LCR AGENCY',
+        name: 'LCR SERVIÇOS',
         fullName: 'LCR LTDA',
-        email: 'contato@lcragency.com',
+        email: 'adm@lcrltda.com',
+        website: 'https://lcrltda.com/lcragency/',
         locations: ['Fortaleza', 'São Paulo'],
         country: 'Brasil'
     },
@@ -19,10 +20,11 @@ const LCR_CONFIG = {
         brightness: 0.7
     },
 
-    // Redes sociais
+    // URLs e redes sociais
+    baseUrl: 'https://lcrltda.com/lcragency/',
     social: {
         instagram: 'https://instagram.com/lcragency',
-        email: 'mailto:contato@lcragency.com'
+        email: 'mailto:adm@lcrltda.com'
     },
 
     // Configurações de UI
@@ -67,13 +69,13 @@ const LCR_CONFIG = {
         copyright: '©LCR LTDA. Todos os direitos reservados.',
         services: [
             'Marketing Digital',
-            'Criação de Conteúdo',
-            'Gestão de Redes Sociais',
-            'Consultoria Empresarial'
+            'Produção Audiovisual',
+            'Editoração',
+            'Content Design'
         ],
         about: {
             title: 'Sobre a LCR Agency',
-            description: 'Somos uma agência especializada em soluções digitais inovadoras.'
+            description: 'Conteúdo de alta qualidade com eficiência e inovação digital.'
         }
     },
 
@@ -85,7 +87,8 @@ const LCR_CONFIG = {
         seo: {
             title: 'LCR AGENCY - Marketing Digital e Soluções Criativas',
             description: 'Agência especializada em marketing digital, criação de conteúdo e soluções criativas em Fortaleza e São Paulo.',
-            keywords: 'marketing digital, agência, criação, conteúdo, fortaleza, são paulo'
+            keywords: 'marketing digital, agência, criação, conteúdo, fortaleza, são paulo, lcr ltda',
+            canonical: 'https://lcrltda.com/lcragency/'
         }
     },
 
