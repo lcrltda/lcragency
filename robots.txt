@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://lcragency.com/sitemap.xml
+
+# Specific rules for search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block access to sensitive files
+Disallow: /config.js
+Disallow: /package.json
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /temp/
+Disallow: /backup/
+
+# Allow specific resources
+Allow: /styles.css
+Allow: /script.js
+Allow: /assets/
+Allow: /images/
