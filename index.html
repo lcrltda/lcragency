@@ -187,6 +187,11 @@
         .email-icon {
             font-size: 18px;
             cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .email-icon:hover {
+            color: #ccc;
         }
         
         .trademark {
@@ -229,7 +234,9 @@
         <div class="footer-right">
             <div class="timestamp">Tuesday, May 13, 2025 10:55 PM</div>
             <div class="location"><i class="fas fa-globe-europe"></i> Fortaleza/São Paulo, Brasil </div>
-            <div class="email-icon"><i class="far fa-envelope"></i></div>
+            <a href="mailto:adm@lcrltda.com" class="email-icon" style="color: inherit; text-decoration: none;">
+                <i class="far fa-envelope"></i>
+            </a>
         </div>
     </footer>
 
