@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://lcragency.com/sitemap.xml
+Sitemap: https://lcrltda.com/lcragency/sitemap.xml
 
 # Specific rules for search engines
 User-agent: Googlebot
