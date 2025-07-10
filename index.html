@@ -47,7 +47,7 @@
             align-items: center;
             padding: 20px;
             position: relative;
-            margin-top: 40px; /* Abaixou o menu */
+            margin-top: 50px; /* Posiciona logo abaixo da barra de navegação */
         }
         
         .browser-bar {
@@ -60,6 +60,7 @@
             display: flex;
             align-items: center;
             border-bottom: 1px solid #3a3a3a;
+            z-index: 10;
         }
         
         .browser-actions {
@@ -126,7 +127,6 @@
         .logo {
             font-weight: bold;
             font-size: 18px;
-            margin-top: 30px;
             letter-spacing: 1px;
         }
         
@@ -203,6 +203,24 @@
 </head>
 <body>
 
+    <!-- Barra de navegação do navegador -->
+    <div class="browser-bar">
+        <div class="browser-actions">
+            <div class="browser-action">←</div>
+            <div class="browser-action">→</div>
+            <div class="browser-action">↻</div>
+        </div>
+        <div class="url-bar">
+            <div class="vpn">🛡</div>
+            https://lcragency.com
+        </div>
+        <div class="browser-icons">
+            <div class="browser-icon">⭐</div>
+            <div class="browser-icon">👤</div>
+            <div class="browser-icon">⚙</div>
+        </div>
+    </div>
+
     <!-- Vídeo de fundo do YouTube -->
     <div class="background-video">
         <div id="player"></div>
@@ -253,7 +271,7 @@
         $(document).ready(function() {
             var iframe = document.createElement('iframe');
             iframe.id = 'youtube-iframe';
-            iframe.setAttribute('src', 'https://www.youtube.com/embed/AYC-6BlQhA8?autoplay=1&controls=0&rel=0&showinfo=0&loop=1&playlist=AYC-6BlQhA8&mute=1&playsinline=1&modestbranding=1&iv_load_policy=3');
+            iframe.setAttribute('src', 'https://www.youtube.com/embed/coUAhRIf5ic?si=-xEFmoIJ6Modj878&amp;start=37');
             iframe.setAttribute('frameborder', '0');
             iframe.setAttribute('allowfullscreen', '');
             iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
