@@ -9,7 +9,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Helvetica Neue', 'Arial Nova', Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
         
         body {
@@ -67,7 +67,7 @@
             font-weight: bold;
             font-size: 24px;
             letter-spacing: 1px;
-            font-family: 'Helvetica Neue', 'Arial Nova', Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
         
         .nav-items {
@@ -80,7 +80,13 @@
             display: flex;
             align-items: center;
             letter-spacing: 0.5px;
-            font-family: 'Helvetica Neue';
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+            font-weight: bold;
+        }
+        
+        .nav-item a {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+            font-weight: bold;
         }
         
         .nav-item i {
@@ -141,6 +147,9 @@
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -155,12 +164,12 @@
         <div class="nav-items">
            <div class="nav-item">
     <a href="servicos.html" style="color: inherit; text-decoration: none; display: flex; align-items: center;">
-        <i class="fas fa-bars"></i> Serviços
+        <i class="fas fa-bars"></i> serviços
     </a>
 </div>
             <div class="nav-item">
     <a href="quem-somos.html" style="color: inherit; text-decoration: none; display: flex; align-items: center;">
-        <i class="fas fa-plus-circle"></i> Quem Somos
+        <i class="fas fa-plus-circle"></i> quem somos
     </a>
 </div>
             <div class="nav-item instagram-icon">
